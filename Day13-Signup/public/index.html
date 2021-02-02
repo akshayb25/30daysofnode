@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Sign Up Form </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./style.css">
+    </head>
+    <body>
+        <div class="container">
+            <form class="form-class" action="/signup" method="POST">
+                <div class="form-group" class="input">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input required type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group" class="input">
+                    <label for="firstname">Firstname</label>
+                    <input required type="text" class="form-control" id="firstname" placeholder="Firstname">
+                </div>
+                <div class="form-group" class="input">
+                    <label for="lastname">Lastname</label>
+                    <input required type="text" class="form-control" id="lastname" placeholder="Lastname">
+                </div>
+                <div class="form-group" class="input">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input required type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary input">Submit</button>
+              </form>
+        </div>
+    </body>
+</html>
