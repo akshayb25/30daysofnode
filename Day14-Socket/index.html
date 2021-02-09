@@ -1,0 +1,45 @@
+<html>
+    <head>
+    <!-- Including google font Josefin Sans -->
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Josefin+Slab" rel="stylesheet">
+	<!-- Including bootstrap v3.3.7 -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- Including jquery v3.2.1 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Including socket.io file v2.0.3 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.1/socket.io.js"></script>
+    <style>
+        h2{
+            color: red;
+    font-family: cursive;
+    margin-left: 30%;
+        }
+        blockquote{
+            margin-left: 30%;
+    margin-top: 5%;
+    color: darkblue;
+    font-size: x-large;
+    font-family: initial;
+        }
+    </style>
+    </head>
+
+    <body>
+        <div>
+            <h2>Real Time Quotes</h2>
+            <div class="quote" id="quote">
+                <blockquote>First Quote</blockquote>
+            </div>
+        </div>
+    </body>
+    <script>
+        $('document').ready(function(){
+            var socket = io.connect('http://localhost:3000');
+
+            socket.on('next',function(data){
+                console.log(data);
+                $('#quote').append("<blockquote>" + data.quote + "</blockquote>");
+            })
+        })
+    </script>
+</html>

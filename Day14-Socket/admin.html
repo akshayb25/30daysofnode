@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <!-- Including google font Josefin Sans -->
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Josefin+Slab" rel="stylesheet">
+	<!-- Including bootstrap v3.3.7 -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- Including jquery v3.2.1 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Including socket.io file v2.0.3 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.1/socket.io.js"></script>
+    <style>
+        .heading{
+            margin-left: 30%;
+            color: red;
+            font-family: cursive;
+        }
+        #submit{
+            display: block;
+            margin-top: 5%;
+            margin-left: 15%;
+            background-color: gold;
+        }
+        #quote{
+            height: 20%;
+            margin-top: 5%;
+        }
+        .container{
+            margin-left: 27%;
+        }
+    </style>
+    </head>
+    <body>
+        <h2 class="heading">Add your quote</h2>
+        <div class="container">
+            <textarea name="quote" id="quote" cols="30" rows="10"></textarea>
+            <button id="submit">Post</button>
+        </div>
+    </body>
+    <script>
+        $('document').ready(function(){
+            var socket = io.connect('http://localhost:3000');
+
+            $('#submit').click(function(){
+                data = $('#quote').val();
+                socket.emit('post',{quote:data});
+                $('#qcontent').val('');
+            })
+        })
+    </script>
+</html>
